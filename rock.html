@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        font-size: 14;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+    #container {
+    width: 100%;
+    height: 100vh;
+    background: white;
+     }
+  
+  #header {
+    background: rgb(250, 250, 248);
+    font-size: 20px;
+    height: 100 px;
+    display: flex;
+    justify-content: center;
+    }
+ 
+  #main {
+   background: #fff;
+   height: 200px;
+   margin-top: 5%;
+   margin-left: 38%;
+   margin-right: 35%;
+   
+   
+   }
+  .butt {
+      font-size: 20px;
+      padding-right: 20px;
+      padding-left: 20px;
+        }
+
+</style>
+
+<body>
+  <div id = "container">
+      <div id = "header">
+         <p>To play, please choose one of the following:</p>
+      </div>
+     
+      <div id = "main" >
+         <button class = "butt"  onclick="enteredChoices('rock')">Rock</button>
+         <button class = "butt"  onclick="enteredChoices('paper')">Paper</button>
+         <button class = "butt"  onclick="enteredChoices('scissors')">Scissors</button>
+      </div>
+      <script src = "rock.js" ></script>
+  </div>
+</body>
+</html>
+
+
+
+
