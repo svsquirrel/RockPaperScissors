@@ -1,60 +1,82 @@
-//Rock paper scissors game
-//Set up a game against the computer that the user makes a selection, and the computer randomly returns rock, paper, or scissors. Compare the results
-//and determine who won. Play 5 times.
-//set a user variable
-let userInput = "";
-//set a computer variable
-let computerInput = "";
-//set an array of the 3 options
-let gameOptions = ["scissors", "rock" ,"paper"];
-//need a user input to select one of the 3. 
-//the instructions want the person to type in one of the 3 options. I think buttons are better to avoid spelling errors.
-   //See the html page for the button 
-function enteredChoices(selection) {
-   
-    userInput = selection;
-   
-//need the computer to randomly select one of the 3
-  //math.floor/to make the value an integer/(math.random()to randomize the output and * the length of the array to only include the number of items in the array
-  let random = Math.floor(Math.random()*gameOptions.length);
- //now assign this random  # to the computerInput variable so we can see what the computer picked - rock, paper, or scissors
-  computerInput=gameOptions[random];
+//Rock paper scissors
+let computerScore = 0;
+let userScore     = 0;
+const buttons = document.querySelectorAll('button');
+const results = document.getElementById("outcome");
 
-//need to compare the user input to the computer generated input
- alert (" You chose " + userInput + " and the computer chose " + computerInput );
- 
- //take these results and put them into an if statement that compares them for the game. It'll be easier to do a separate 'if' section for each option
- //that the user chooses. 
-
- if (userInput ==="rock") {
-       if (computerInput ==="rock") {
-       alert("Oh no! You tied!");
-       } else if (computerInput ==="paper") {
-       alert("Paper covers rock. You lose!");
-       } else {
-       alert ("Hey! Looks like you won. Smash those sissors!");
-  }
-
-  } else if (userInput ==="paper"){
-      if (computerInput ==="rock") {
-      alert("You won!");
-      } else if (computerInput ==="paper") {
-      alert("Oh, no. Looks like a tie");
-      } else {
-      alert ("You just got chopped to pieces");
-      }
- 
-  } else {
-      if (computerInput ==="rock") {
-      alert("You got crushed!");
-      } else if (computerInput ==="paper") {
-      alert("You won!");
-      } else {
-      alert ("Oh Oh. You guys tied");
-      }
-  }
-
+function computerPlay() {
+    let items = ["rock", "paper", "scissors"];
+    return items[Math.floor(Math.random() * items.length)]
 }
+
+
+buttons.forEach((button) => {
+button.addEventListener('click',() =>{
+
+  uInput =  button.id
+  
+  playGame(uInput,computerPlay()), updateScore(), gameOver()
+
+});
+});
+
+
+function playGame(uInput, cInput) {
+   
+   
+    if (uInput === cInput) {
+        results.innerHTML = "You tied!";
+    }else if (uInput === 'rock' && cInput === 'paper'){
+        results.innerHTML = "You lost! You chose rock and the computer chose paper!";
+        computerScore++;
+    }else if (uInput === 'rock' && cInput === 'scissors'){
+        results.innerHTML = "Your rock crushed his scissors!";
+        userScore++;
+    }else if ( uInput === 'paper' && cInput === 'scissors'){
+        results.innerHTML = "You lost! You got chopped by his scissors";
+        computerScore++;
+    } else if (uInput === 'paper' && cInput === 'rock') {
+        results.innerHTML = "You covered him!";
+        userScore++;
+    } else if (uInput === 'scissors' && cInput === 'paper') {
+        results.innerHTML = "You cut him up!";
+        userScore++;
+    } else if (uInput === 'scissors' && cInput === 'rock') {
+        results.innerHTML = "You lost that round!";
+        computerScore++;
+    }  
+}      
+   
+function updateScore() {
+    document.getElementById("score").innerHTML = `${userScore} - ${computerScore}`;
+}
+
+function gameOver() {
+    if (userScore === 5){
+        results.innerHTML = "You won the game!";
+        computerScore = 0
+        userScore = 0
+    } else if (computerScore ===5){
+        results.innerHTML === "You lost. Try again!"
+        computerScore = 0
+        userScore = 0
+            
+    }
+}    
+  
+    
+
+
+    
+   
+ 
+    
+
+  
+
+
+
+
 
 
 

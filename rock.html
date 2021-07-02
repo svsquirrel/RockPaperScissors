@@ -4,60 +4,85 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Rock Paper Scissors</title>
+    
 </head>
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
     body {
-        font-size: 14;
-        font-family: Georgia, 'Times New Roman', Times, serif;
-        }
-    #container {
-    width: 100%;
-    height: 100vh;
-    background: white;
-     }
-  
-  #header {
-    background: rgb(250, 250, 248);
-    font-size: 20px;
-    height: 100 px;
-    display: flex;
-    justify-content: center;
+      font-size: 14;
+      font-family: 'Noto Sans', sans-serif;
+      width: 100%;
+      height: 100vh;
     }
- 
-  #main {
-   background: #fff;
-   height: 200px;
-   margin-top: 5%;
-   margin-left: 38%;
-   margin-right: 35%;
+    .container {
+      display: grid;
+      grid-template-rows: 25% 30% 50%;
+      }
+
+
+  .header{
+      margin-left: 35%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      grid-row: 1/2;
+    }
+
+
+  .info {
+      grid-row: 2 / 3;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-left: 35%;
+    }
+
    
-   
+    #main {
+    grid-row: 3 /3;
+    display:flex;
+    justify-content: center;
+    margin-right: 14%;
+    margin-top: 15px;
+    
    }
+
   .butt {
       font-size: 20px;
       padding-right: 20px;
       padding-left: 20px;
-        }
-
+      }
+    
 </style>
 
-<body>
-  <div id = "container">
-      <div id = "header">
-         <p>To play, please choose one of the following:</p>
-      </div>
-     
+<body >
+  <div class = "container"></div>
+  
+    <header class = "header">
+      <h1>Rock Paper Scissors</h1>
+      <h3>The first to 5 points wins.</h3>
+    </header> 
+  
+  <div class = "info">
+      <h3 id="score">0 - 0</h3>
+      <h2 id="outcome">Start the game!</h2>
+  </div>   
+    
       <div id = "main" >
-         <button class = "butt"  onclick="enteredChoices('rock')">Rock</button>
-         <button class = "butt"  onclick="enteredChoices('paper')">Paper</button>
-         <button class = "butt"  onclick="enteredChoices('scissors')">Scissors</button>
+         <button class = "butt"  id = "rock" >Rock</button>
+         <button class = "butt"  id = "paper" >Paper</button>
+         <button class = "butt"  id = "scissors" >Scissors</button>
       </div>
-      <script src = "rock.js" ></script>
-  </div>
+    
+      <script src = "rock2.js" ></script>
+    </div>
 </body>
 </html>
 
 
 
-
+    
+    
+</body>
+</html>
